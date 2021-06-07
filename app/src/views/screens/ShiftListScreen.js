@@ -7,78 +7,7 @@ import COLORS from '../../consts/color';
 import STYLES from '../../styles';
 import OpenTab from '../../components/OpenTab';
 import AppliedTab from '../../components/AppliedTab';
-
-const OpenShifts = [
-    {
-       name: 'General Hospital',
-       startTime: '9:00 AM',
-       endTime: '3:00 PM',
-       date: "10/10/2019, Thu",
-       location: 'Chicago, IL 60637',
-       deptName: 'Surgery Department'
-    },
-    {
-       name: 'General Hospital',
-       startTime: '9:00 AM',
-       endTime: '3:00 PM',
-       date: "10/10/2019, Thu",
-       location: 'Chicago, IL 60637',
-       deptName: 'Surgery Department'
-    }
-    
-   ]
-
-const AppliedShifts = []
-
-
-function Open() {
-
-  return (
-    <View style={{ flex: 1 }}>
-      {/*
-      OpenShifts.map((shift, index) => {
-          return(
-              <Card key={index}>
-                  <Card.Title>{shift.name}</Card.Title>
-                  <Text>{shift.startTime} - {shift.endTime} - {shift.date}</Text>
-                  <Text>{shift.location}</Text>
-                  <Text>{shift.deptName}</Text>
-                  <Button title="Apply" onPress={()=>handleApply(index)}></Button>
-              </Card>
-          )
-      })
-    */}
-    
-    </View>
-  );
-}
-
-function Applied() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      {
-      AppliedShifts.map((shift, index) => {
-          return(
-              <Card key={index}>
-                  <Card.Title>{shift.name}</Card.Title>
-                  <Text>{shift.startTime} - {shift.endTime} - {shift.date}</Text>
-                  <Text>{shift.location}</Text>
-                  <Text>{shift.deptName}</Text>
-              </Card>
-          )
-      })
-      }
-    </View>
-  );
-}
-
-function Accepted() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Accepted Shifts!</Text>
-      </View>
-    );
-  }
+import Accepted from '../../components/AcceptedTab';
 
 const Tab = createBottomTabNavigator();
 
@@ -132,7 +61,7 @@ export default function ShiftListScreen() {
         }}>
         <Tab.Screen name="Open" component={()=><OpenTab shifts={OpenShifts} handleApply={handleApply}/>} />
         <Tab.Screen name="Applied" component={()=><AppliedTab shifts={AppliedShifts}/>} />
-        <Tab.Screen name="Accepted" component={Accepted} />
+        <Tab.Screen name="Accepted" component={() => <Accepted/>} />
       </Tab.Navigator>
     </NavigationContainer>
   );
