@@ -1,6 +1,9 @@
 import React from 'react'
 import { Text, View } from 'react-native';
-import { Card, Icon } from 'react-native-elements'
+import { Card } from 'react-native-elements'
+import COLORS from '../consts/color';
+import STYLES from '../styles';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function AppliedTab({shifts}) {
     console.log(shifts)
@@ -12,10 +15,29 @@ export default function AppliedTab({shifts}) {
         shifts.map((shift, index) => {
             return(
                 <Card key={index}>
-                    <Card.Title>{shift.name}</Card.Title>
-                    <Text>{shift.startTime} - {shift.endTime} - {shift.date}</Text>
-                    <Text>{shift.location}</Text>
-                    <Text>{shift.deptName}</Text>
+                    <Text style={{fontWeight:'bold', fontSize:20, marginBottom:10}}>{shift.name}</Text>
+                    <Text style={{marginBottom:5}}>
+                        <Icon
+                        name="access-time"
+                        color={COLORS.light}
+                        size={20}
+                        />
+                          {shift.startTime} - {shift.endTime} - {shift.date}</Text>
+                    <Text style={{marginBottom:5}}>
+                        <Icon
+                        name="location-pin"
+                        color={COLORS.light}
+                        size={20}
+                        style={STYLES.inputIcon}
+                        />
+                        {shift.location}</Text>
+                    <Text style={{marginBottom:5}}>
+                        <Icon
+                        name="local-hospital"
+                        color={COLORS.light}
+                        size={20}
+                        style={STYLES.inputIcon}
+                        />{shift.deptName}</Text>
                 </Card>
             )
         })

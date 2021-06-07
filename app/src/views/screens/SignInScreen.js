@@ -1,12 +1,12 @@
 import 'react-native-gesture-handler';
 import React, {useState} from 'react';
 import {SafeAreaView, View, Text, TextInput, Image} from 'react-native';
-import {IconIonicons} from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../../consts/color';
 import STYLES from '../../styles';
 import {ScrollView, TouchableOpacity} from 'react-native-gesture-handler';
 
-const SignInScreen = ({navigation}) => {
+function SignInScreen ({navigation}) {
 
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -27,11 +27,21 @@ const SignInScreen = ({navigation}) => {
 
         <View style={{marginTop: 20}}>
           <View style={STYLES.inputContainer}>
-            
+            <Icon
+              name="mail-outline"
+              color={COLORS.light}
+              size={20}
+              style={STYLES.inputIcon}
+            />
             <TextInput placeholder="Username" style={STYLES.input} onChangeText={(value)=>setUserName(value)}/>
           </View>
           <View style={STYLES.inputContainer}>
-            
+            <Icon
+              name="person-outline"
+              color={COLORS.light}
+              size={20}
+              style={STYLES.inputIcon}
+            />
             <TextInput
               placeholder="Password"
               style={STYLES.input}

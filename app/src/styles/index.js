@@ -13,6 +13,7 @@ const STYLES = StyleSheet.create({
     fontSize: 18,
   },
   inputIcon: {marginTop: 15, position: 'absolute'},
+  listIcon: {marginRight: 15, marginBottom: 15, position: 'absolute'},
   btnPrimary: {
     backgroundColor: COLORS.primary,
     height: 50,
